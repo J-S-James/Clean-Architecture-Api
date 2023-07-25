@@ -1,0 +1,15 @@
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\Infastructure.csproj.AssemblyReference.cache
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\Infastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\Infastructure.AssemblyInfoInputs.cache
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\Infastructure.AssemblyInfo.cs
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\Infastructure.csproj.CoreCompileInputs.cache
+E:\Projects\ApiExample\Infastructure\bin\Debug\net7.0\Infastructure.deps.json
+E:\Projects\ApiExample\Infastructure\bin\Debug\net7.0\Infastructure.dll
+E:\Projects\ApiExample\Infastructure\bin\Debug\net7.0\Infastructure.pdb
+E:\Projects\ApiExample\Infastructure\bin\Debug\net7.0\Domain.dll
+E:\Projects\ApiExample\Infastructure\bin\Debug\net7.0\Domain.pdb
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\Infastructure.csproj.CopyComplete
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\Infastructure.dll
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\refint\Infastructure.dll
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\Infastructure.pdb
+E:\Projects\ApiExample\Infastructure\obj\Debug\net7.0\ref\Infastructure.dll
