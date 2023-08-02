@@ -1,4 +1,5 @@
 using Domain.Entities;
+using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Moq;
@@ -45,5 +46,27 @@ public class AccountRepoTests
         var result = await _accountRepo.GetAsync(account);
 
         Assert.That(result, Is.Null);
+    }
+
+    [Test]
+    public async Task CreateAsync_ShouldReturnIntValue1_WhenSuccessfulCreation()
+    {
+        var account = new Account { Id = 3, FirstName = "John", LastName = "Doe" };
+        _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(1);
+
+        var result = await _accountRepo.CreateAsync(account);
+
+        Assert.That(result, Is.EqualTo(1));
+    }
+
+    [Test]
+    public async Task CreateAsync_ShouldReturnIntValue0_WheFailedCreation()
+    {
+        var account = new Account { Id = 3, FirstName = "John", LastName = "Doe" };
+        _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(0);
+
+        var result = await _accountRepo.CreateAsync(account);
+
+        Assert.That(result, Is.EqualTo(0));
     }
 }

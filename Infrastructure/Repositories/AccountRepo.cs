@@ -19,4 +19,12 @@ public class AccountRepo : IAccountRepo
                              .Where(s => s.Id == account.Id)
                              .SingleOrDefaultAsync();
     }
+
+    public async Task<int> CreateAsync(Account account)
+    {
+        await _context.Account
+                      .AddAsync(account);
+
+        return await _context.SaveChangesAsync();
+    }
 }
