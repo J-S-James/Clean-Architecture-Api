@@ -2,6 +2,6 @@
 public class Account
 {
     public int Id { get; init; }
-    public string FirstName { get; init; } = default!;
-    public string LastName { get; init; } = default!;
+    public string FirstName { get; set; } = default!;
+    public string LastName { get; set; } = default!;
 }

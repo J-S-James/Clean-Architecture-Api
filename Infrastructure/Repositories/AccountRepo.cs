@@ -27,4 +27,22 @@ public class AccountRepo : IAccountRepo
 
         return await _context.SaveChangesAsync();
     }
+
+    public async Task<int> UpdateAsync(Account account)
+    {
+        var accountDetails = await _context.Account
+                             .Where(s => s.Id == account.Id)
+                             .SingleOrDefaultAsync();
+
+        if (accountDetails is null)
+        {
+            return 0;
+        }
+        else
+        {
+            accountDetails.FirstName = account.FirstName;
+            accountDetails.LastName = account.LastName;
+            return await _context.SaveChangesAsync();
+        }
+    }
 }
