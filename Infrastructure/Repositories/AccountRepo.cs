@@ -45,4 +45,21 @@ public class AccountRepo : IAccountRepo
             return await _context.SaveChangesAsync();
         }
     }
+
+    public async Task<int> DeleteAsync(Account account)
+    {
+        var accountDetails = await _context.Account
+                             .Where(s => s.Id == account.Id)
+                             .SingleOrDefaultAsync();
+
+        if (accountDetails is null)
+        {
+            return 0;
+        }
+        else
+        {
+            _context.Account.Remove(accountDetails);
+            return await _context.SaveChangesAsync();
+        }
+    }
 }

@@ -51,7 +51,7 @@ public class AccountRepoTests
     [Test]
     public async Task CreateAsync_ShouldReturnIntValue1_WhenSuccessfulCreation()
     {
-        var account = new Account { Id = 3, FirstName = "Jeremy", LastName = "Doe" };
+        var account = new Account { Id = 3, FirstName = "Baby", LastName = "Doe" };
         _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(1);
 
         var result = await _accountRepo.CreateAsync(account);
@@ -62,7 +62,7 @@ public class AccountRepoTests
     [Test]
     public async Task CreateAsync_ShouldReturnIntValue0_WheFailedCreation()
     {
-        var account = new Account { Id = 3, FirstName = "Jeremy", LastName = "Doe" };
+        var account = new Account { Id = 3, FirstName = "Baby", LastName = "Doe" };
         _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(0);
 
         var result = await _accountRepo.CreateAsync(account);
@@ -73,7 +73,7 @@ public class AccountRepoTests
     [Test]
     public async Task UpdateAsync_ShouldReturnIntValue1_WhenSuccessfulUpdate()
     {
-        var account = new Account { Id = 1, FirstName = "Dave", LastName = "Doe" };
+        var account = new Account { Id = 1, FirstName = "Richard", LastName = "Roe" };
         _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(1);
 
         var result = await _accountRepo.UpdateAsync(account);
@@ -84,10 +84,32 @@ public class AccountRepoTests
     [Test]
     public async Task UpdateAsync_ShouldReturnIntValue1_WhenFailedUpdate()
     {
-        var account = new Account { Id = 3, FirstName = "Dave", LastName = "Doe" };
+        var account = new Account { Id = 3, FirstName = "Richard", LastName = "Roe" };
         _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(1);
 
         var result = await _accountRepo.UpdateAsync(account);
+
+        Assert.That(result, Is.EqualTo(0));
+    }
+
+    [Test]
+    public async Task DeleteAsync_ShouldReturnIntValue1_WhenSuccessfulDeletion()
+    {
+        var account = new Account { Id = 1 };
+        _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(1);
+
+        var result = await _accountRepo.DeleteAsync(account);
+
+        Assert.That(result, Is.EqualTo(1));
+    }
+
+    [Test]
+    public async Task DeleteAsync_ShouldReturnIntValue0_WhenFailedDeletion()
+    {
+        var account = new Account { Id = 3 };
+        _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(1);
+
+        var result = await _accountRepo.DeleteAsync(account);
 
         Assert.That(result, Is.EqualTo(0));
     }
