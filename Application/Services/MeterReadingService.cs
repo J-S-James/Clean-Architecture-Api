@@ -7,9 +7,9 @@ public class MeterReadingService : IMeterReadingService
     private readonly IMeterReadingRepo _meterReadingRepo;
     private readonly IMeterReadingValidator _validator;
 
-    public MeterReadingService(IMeterReadingValidator validator, IMeterReadingRepo meterReadingDA)
+    public MeterReadingService(IMeterReadingValidator validator, IMeterReadingRepo meterReadingRepo)
     {
-        _meterReadingRepo = meterReadingDA;
+        _meterReadingRepo = meterReadingRepo;
         _validator = validator;
     }
 
