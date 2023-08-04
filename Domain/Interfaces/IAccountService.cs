@@ -3,8 +3,8 @@
 namespace Domain.Interfaces;
 public interface IAccountService
 {
-    Task<Account> CreateAccountAsync(Account account);
-    Task<Account> GetAccountAsync(Account account);
-    Task<Account> UpdateAccountAsync(Account account);
-    Task<Account> DeleteAccountAsync(Account account);
+    Task<int> CreateAccountAsync(Account account);
+    Task<Account?> GetAccountAsync(Account account);
+    Task<int> UpdateAccountAsync(Account account);
+    Task<int> DeleteAccountAsync(Account account);
 }
