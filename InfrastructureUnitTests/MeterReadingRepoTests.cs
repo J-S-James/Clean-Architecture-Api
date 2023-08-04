@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Moq;
@@ -126,5 +127,49 @@ public class MeterReadingRepoTests
         }
 
         return result;
+    }
+
+    [Test]
+    public async Task UpdateAsync_ShouldReturnIntValue1_WhenSuccessfulUpdate()
+    {
+        var meterReading = new MeterReading { AccountId = 1, Date = new DateTime(2023, 7, 12), Value = 200 };
+        _dbContextMock.Setup(mr => mr.SaveChangesAsync()).ReturnsAsync(1);
+
+        var result = await _meterReadingRepo.UpdateAsync(meterReading);
+
+        Assert.That(result, Is.EqualTo(1));
+    }
+
+    [Test]
+    public async Task UpdateAsync_ShouldReturnIntValue1_WhenFailedUpdate()
+    {
+        var meterReading = new MeterReading { AccountId = 4, Date = new DateTime(2023, 7, 12), Value = 200 };
+        _dbContextMock.Setup(mr => mr.SaveChangesAsync()).ReturnsAsync(1);
+
+        var result = await _meterReadingRepo.UpdateAsync(meterReading);
+
+        Assert.That(result, Is.EqualTo(0));
+    }
+
+    [Test]
+    public async Task DeleteAsync_ShouldReturnIntValue1_WhenSuccessfulDeletion()
+    {
+        var meterReading = new MeterReading { AccountId = 1, Date = new DateTime(2023, 7, 12) };
+        _dbContextMock.Setup(mr => mr.SaveChangesAsync()).ReturnsAsync(1);
+
+        var result = await _meterReadingRepo.DeleteAsync(meterReading);
+
+        Assert.That(result, Is.EqualTo(1));
+    }
+
+    [Test]
+    public async Task DeleteAsync_ShouldReturnIntValue0_WhenFailedDeletion()
+    {
+        var meterReading = new MeterReading { AccountId = 4, Date = new DateTime(2023, 7, 12) };
+        _dbContextMock.Setup(a => a.SaveChangesAsync()).ReturnsAsync(1);
+
+        var result = await _meterReadingRepo.DeleteAsync(meterReading);
+
+        Assert.That(result, Is.EqualTo(0));
     }
 }
