@@ -13,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAppDbContext, AppDbContext>();
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IMeterReadingRepo, MeterReadingRepo>();
 builder.Services.AddScoped<IMeterReadingService, MeterReadingService>();
 builder.Services.AddScoped<IMeterReadingValidator, MeterReadingValidator>();
