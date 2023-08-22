@@ -27,4 +27,17 @@ public class AccountController : BaseApiController
 
         return Ok();
     }
+
+    [HttpGet]
+    public async Task<IActionResult> ReadAsync(int id)
+    {
+        var result = await _accountService.GetAccountAsync(new Account { Id = id });
+
+        if (result is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(result);
+    }
 }
