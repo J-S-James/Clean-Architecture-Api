@@ -40,4 +40,11 @@ public class AccountController : BaseApiController
 
         return Ok(result);
     }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateAsync(Account account)
+    {
+        var result = await _accountService.UpdateAccountAsync(account);
+        return Ok(result);
+    }
 }
