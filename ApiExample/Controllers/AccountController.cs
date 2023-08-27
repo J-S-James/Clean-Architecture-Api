@@ -47,4 +47,11 @@ public class AccountController : BaseApiController
         var result = await _accountService.UpdateAccountAsync(account);
         return Ok(result);
     }
+
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAsync(int id)
+    {
+        var result = await _accountService.DeleteAccountAsync(new Account { Id = id });
+        return Ok(result);
+    }
 }
